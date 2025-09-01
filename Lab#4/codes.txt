@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int percent;
+    printf("enter percentage ");
+    scanf("%d",&percent);
+
+        if (percent<55)
+            printf("fail");
+        else if(percent>=55 && percent<65)
+            printf("c+");
+        else if(percent>=65 && percent<75)
+            printf("B");
+        else if(percent>=75 && percent<85)
+            printf("B+");
+        else if(percent>=85 && percent<95)
+            printf("A");
+        else if(percent>=95 && percent<=100)
+            printf("A+");
+        else
+            printf("invalid");
+}
+
+//==============================================================================================
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n1,n2,operation;
+    printf("enter which operation:\n 1.ADD \n 2.SUB \n 3. MULTIPLY \n 4.Divide ");
+    scanf("%d"),&operation);
+    printf("enter num 1 ");
+    scanf("%d",&n1);
+    printf("enter num 2 ");
+    scanf("%d",&n2);
+    
+    
+    
+    if (operation==1)
+        {
+            printf(n1+n2);
+        }
+    
+    else if (operation==2)
+        {
+            printf(n1-n2);
+        }
+    
+    else if(operation==3)
+        {
+            printf(n1*n2);
+        }
+    
+    else if (operation==4)
+        {
+            printf(n1/n2);
+        }
+    else
+    printf("invalid")
+    
+}
+
+
+
+ 
+ //======================================================================
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int number;
+    printf("enter number ");
+    scanf("%d"),&number);
+    if (number%2 == 0)
+        printf("even");
+    else
+        printf("odd");
+    
+}
+//======================================================================================
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int number;
+    printf("enter number ");
+    scanf("%d"),&number);
+    if (number> 0)
+        printf("positive");
+    else
+        printf("negative");
+    
+}

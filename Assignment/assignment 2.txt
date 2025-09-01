@@ -1,0 +1,120 @@
+#include <stdio.h>
+
+struct Product {
+    char Product_name[30];
+    int Product_code;
+    float Unit_price;
+    int Quantity_in_stock;
+    float Total_sales_value;
+};
+
+void loadSalesData(struct Product productInventory[], int size) {
+    FILE *file = fopen("sales.txt", "r");
+
+    if (file == NULL) {
+        printf("Error opening the file.\n");
+        return;
+    }
+
+    for (int i = 0; i < size; ++i) {
+        if (fscanf(file, "%s %d %f %d",
+                   productInventory[i].Product_name,
+                   &productInventory[i].Product_code,
+                   &productInventory[i].Unit_price,
+                   &productInventory[i].Quantity_in_stock) != 4) {
+            break;
+        }
+    }
+
+    fclose(file);
+}
+
+void inputSalesData(struct Product productInventory[], int size) {
+    FILE *file = fopen("sales.txt", "w");
+
+    if (file == NULL) {
+        printf("Error opening the file.\n");
+        return;
+    }
+
+    for (int i = 0; i < size; ++i) {
+        printf("Enter details for Product %d:\n", i + 1);
+
+        printf("Product Name: ");
+        scanf("%s", productInventory[i].Product_name);
+
+        printf("Product Code: ");
+        scanf("%d", &productInventory[i].Product_code);
+
+        printf("Unit Price: ");
+        scanf("%f", &productInventory[i].Unit_price);
+
+        printf("Quantity in Stock: ");
+        scanf("%d", &productInventory[i].Quantity_in_stock);
+
+        // Save the information to the file
+        fprintf(file, "%s %d %.2f %d\n",
+                productInventory[i].Product_name,
+                productInventory[i].Product_code,
+                productInventory[i].Unit_price,
+                productInventory[i].Quantity_in_stock);
+    }
+
+    fclose(file);
+}
+
+void calculateSalesValue(struct Product *product) {
+    // Calculate the total sales value by multiplying unit price and quantity
+    product->Total_sales_value = product->Unit_price * product->Quantity_in_stock;
+}
+
+int main() {
+    struct Product productInventory[25];
+
+    // Load existing sales data
+    loadSalesData(productInventory, 25);
+
+    // Print loaded data
+    printf("Loaded Data:\n\n\n");
+    for (int i = 0; i < 25; ++i) {
+        printf("Product Name: %s\n", productInventory[i].Product_name);
+        printf("Product Code: %d\n", productInventory[i].Product_code);
+        printf("Unit Price: %.2f\n", productInventory[i].Unit_price);
+        printf("Quantity in Stock: %d\n", productInventory[i].Quantity_in_stock);
+        printf("\n");
+    }
+
+    // Input new sales data
+    inputSalesData(productInventory, 25);
+
+    // Print updated data after input
+    printf("Updated Data:\n");
+    for (int i = 0; i < 25; ++i) {
+        printf("Product Name: %s\n", productInventory[i].Product_name);
+        printf("Product Code: %d\n", productInventory[i].Product_code);
+        printf("Unit Price: %.2f\n", productInventory[i].Unit_price);
+        printf("Quantity in Stock: %d\n", productInventory[i].Quantity_in_stock);
+        printf("\n");
+    }
+
+    // Example: Update the quantity and unit price for the first product using pointers
+    struct Product *ptrProduct = &productInventory[0];
+    printf("Updating Quantity and Unit Price for Product 1:\n");
+    printf("Enter new Quantity: ");
+    scanf("%d", &ptrProduct->Quantity_in_stock);
+    printf("Enter new Unit Price: ");
+    scanf("%f", &ptrProduct->Unit_price);
+
+    // Calculate and update the total sales value
+    calculateSalesValue(ptrProduct);
+
+    // Print the updated information
+    printf("\nUpdated Information for Product 1:\n");
+    printf("Product Name: %s\n", ptrProduct->Product_name);
+    printf("Product Code: %d\n", ptrProduct->Product_code);
+    printf("Unit Price: %.2f\n", ptrProduct->Unit_price);
+    printf("Quantity in Stock: %d\n", ptrProduct->Quantity_in_stock);
+    printf("Total Sales Value: %.2f\n", ptrProduct->Total_sales_value);
+
+    return 0;
+}

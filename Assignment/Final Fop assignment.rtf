@@ -1,0 +1,490 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial Black;}{\f1\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\qc\b\f0\fs32\lang9 Question 1\par
+
+\pard\sa200\sl276\slmult1\b0\f1\par
+#include <stdio.h>\par
+#include <stdlib.h>\par
+\par
+int main() \{\par
+    int n1, n2, operation, opt;\par
+    \par
+    do \{\par
+        printf("Enter which operation:\\n 1.ADD \\n 2.SUB \\n 3.MULTIPLY \\n 4.Divide ");\par
+        scanf("%d", &operation);\par
+        printf("Enter num 1: ");\par
+        scanf("%d", &n1);\par
+        printf("Enter num 2: ");\par
+        scanf("%d", &n2);\par
+        \par
+        if (operation == 1) \{\par
+            printf("Result: %d\\n", n1 + n2);\par
+        \} else if (operation == 2) \{\par
+            printf("Result: %d\\n", n1 - n2);\par
+        \} else if (operation == 3) \{\par
+            printf("Result: %d\\n", n1 * n2);\par
+        \} else if (operation == 4) \{\par
+            if (n2 == 0) \{\par
+                printf("Error, division by zero is not allowed\\n");\par
+            \} else \{\par
+                printf("Result: %f\\n", (float)n1 / n2);\par
+            \}\par
+        \} else \{\par
+            printf("Invalid choice\\n");\par
+        \}\par
+        \par
+        printf("Do you wish to continue? \\n 0: Continue\\n 1: Terminate \\n");\par
+        scanf("%d", &opt);\par
+    \} while (opt != 1);\par
+    \par
+    return 0;\par
+\}\par
+\par
+
+\pard\sa200\sl276\slmult1\qc\b\f0 Question 2 \par
+
+\pard\sa200\sl276\slmult1\b0\f1 #include <stdio.h>\par
+\par
+int main() \{\par
+    int nSub, marks, totalMarks = 0;\par
+    char overallGrade;\par
+    \par
+    printf("How many subject marks do you want to add? ");\par
+scanf("%d", &nSub);\par
+    if (nSub != 1 || nSub <= 0) \{\par
+        printf("Invalid input for the number of subjects. Please enter a positive integer.\\n"); \par
+    \}\par
+    for (int i = 0; i < nSub; i++) \{\par
+        int subject\par
+        printf("Enter Subject  %d: ", i + 1);\par
+\tab scanf("%d", &subject)\par
+        if (subject  != 1 || subject < 0 || subject > 100) \{\par
+            printf("Invalid input for subject . Please enter a valid integer between 0 and 100.\\n");\par
+        \}\par
+        \par
+        printf("Enter Marks for Subject %d: ", i + 1);\par
+\tab scanf("%d", &marks);\par
+        \}\par
+\par
+        if (marks < 55)\par
+            printf("Subject %d: Fail\\n", i + 1);\par
+        else if (marks >= 55 && marks < 65)\par
+            printf("Subject %d: C+\\n", i + 1);\par
+        else if (marks >= 65 && marks < 75)\par
+            printf("Subject %d: B\\n", i + 1);\par
+        else if (marks >= 75 && marks < 85)\par
+            printf("Subject %d: B+\\n", i + 1);\par
+        else if (marks >= 85 && marks < 95)\par
+            printf("Subject %d: A\\n", i + 1);\par
+        else if (marks >= 95 && marks <= 100)\par
+            printf("Subject %d: A+\\n", i + 1);\par
+        else\par
+            printf("Subject %d: Invalid\\n", i + 1);\par
+\par
+        totalMarks += marks;\par
+    \}\par
+    if (totalMarks < (nSub * 55))\par
+        overallGrade = 'F';\par
+    else if (totalMarks < (nSub * 65))\par
+        overallGrade = 'C';\par
+    else if (totalMarks < (nSub * 75))\par
+        overallGrade = 'B';\par
+    else if (totalMarks < (nSub * 85))\par
+        overallGrade = 'B+';\par
+    else if (totalMarks < (nSub * 95))\par
+        overallGrade = 'A';\par
+    else\par
+        overallGrade = 'A+';\par
+\par
+    printf("Overall Grade: %c\\n", overallGrade);\par
+\par
+    return 0;\par
+\}\par
+\par
+
+\pard\sa200\sl276\slmult1\qc\b\f0 Question 3 \par
+
+\pard\sa200\sl276\slmult1\b0\f1 #include <stdio.h>\par
+\par
+int main() \{\par
+    int choice;\par
+    double temperature, convertedTemperature;\par
+DO ALL IN 1 LINE THE PRITNING USING \\N \par
+    printf("Temperature Conversion Menu:\\n");\par
+    printf("1. Celsius to Fahrenheit\\n");\par
+    printf("2. Fahrenheit to Celsius\\n");\par
+    printf("3. Celsius to Kelvin\\n");\par
+    printf("4. Kelvin to Celsius\\n");\par
+    printf("5. Fahrenheit to Kelvin\\n");\par
+    printf("6. Kelvin to Fahrenheit\\n");\par
+    printf("Enter your choice (1-6): ");\par
+    scanf("%d", &choice);\par
+\par
+    printf("Enter the temperature value: ");\par
+    scanf("%lf", &temperature);\par
+\par
+    switch (choice) \{\par
+        case 1:\par
+            convertedTemperature = (temperature * 9 / 5) + 32;  // Celsius to Fahrenheit\par
+            printf("Converted temperature: %.2lf Fahrenheit\\n", convertedTemperature);\par
+            break;\par
+        case 2:\par
+            convertedTemperature = (temperature - 32) * 5 / 9;  // Fahrenheit to Celsius\par
+            printf("Converted temperature: %.2lf Celsius\\n", convertedTemperature);\par
+            break;\par
+        case 3:\par
+            convertedTemperature = temperature + 273.15;  // Celsius to Kelvin\par
+            printf("Converted temperature: %.2lf Kelvin\\n", convertedTemperature);\par
+            break;\par
+        case 4:\par
+            convertedTemperature = temperature - 273.15;  // Kelvin to Celsius\par
+            printf("Converted temperature: %.2lf Celsius\\n", convertedTemperature);\par
+            break;\par
+        case 5:\par
+            convertedTemperature = (temperature - 32) * 5 / 9 + 273.15;  // Fahrenheit to Kelvin\par
+            printf("Converted temperature: %.2lf Kelvin\\n", convertedTemperature);\par
+            break;\par
+        case 6:\par
+            convertedTemperature = (temperature - 273.15) * 9 / 5 + 32;  // Kelvin to Fahrenheit\par
+            printf("Converted temperature: %.2lf Fahrenheit\\n", convertedTemperature);\par
+            break;\par
+        default:\par
+            printf("Invalid choice. Please select a valid option (1-6).\\n");\par
+    \}\par
+\par
+    return 0;\par
+\}\par
+\par
+
+\pard\sa200\sl276\slmult1\qc\b\f0 Question4\par
+
+\pard\sa200\sl276\slmult1\b0\f1 int main()\par
+\{\par
+    const int P = 1500, F = 50, B = 300, N = 500, Bu = 500;\par
+    int quantity, opt, stop = 0, newPrice = 0, count = 0,totalBill=0;\par
+\par
+    printf("\\t The Menu is: \\n1. Pizza \\t1500\\n2. Fries \\t50\\n3. Biryani\\t300\\n4. Nihari\\t500\\n5. Burger\\t500");\par
+\par
+    while (stop == 0)\par
+    \{\par
+        printf("\\n Which option do you choose? ");\par
+        scanf("%d", &opt);\par
+        printf("How much do you want to order? ");\par
+        scanf("%d", &quantity);\par
+\par
+        switch (opt)\par
+        \{\par
+            case 1:\par
+                newPrice = P * quantity;\par
+                printf("%d Pizza is of %d\\n", quantity, newPrice);\par
+                break;\par
+\par
+            case 2:\par
+                newPrice = F * quantity;\par
+                printf("%d Fries is of %d\\n", quantity, newPrice);\par
+                break;\par
+\par
+            case 3:\par
+                newPrice = B * quantity;\par
+                printf("%d Biryani is of %d\\n", quantity, newPrice);\par
+                break;\par
+\par
+            case 4:\par
+                newPrice = N * quantity;\par
+                printf("%d Nihari is of %d\\n", quantity, newPrice);\par
+                break;\par
+\par
+            case 5:\par
+                newPrice = Bu * quantity;\par
+                printf("%d Burger is of %d\\n", quantity, newPrice);\par
+                break;\par
+                \par
+            default:\par
+                printf("Invalid input ");\par
+                \par
+        \}\par
+                totalBill += newPrice;\par
+\par
+        printf("\\nDo you wish to order more? \\n0: Continue\\n1: No \\n");\par
+        scanf("%d", &stop);\par
+        count++;\par
+\par
+        if (stop == 1)\par
+        \{\par
+            printf("The bill is:\\n");\par
+            printf("%d",totalBill);\par
+        \}\par
+    \}\par
+\par
+    return 0;\par
+\} \par
+
+\pard\sa200\sl276\slmult1\qc\b\f0 Question5 \par
+
+\pard\sa200\sl276\slmult1\b0\f1 #include <stdio.h>\par
+#include <stdlib.h>\par
+\par
+int main()\par
+\{\par
+    int rent,returnm,days,copy;\par
+    int opt,choice;\par
+    int acopy=10;\par
+    printf("=======Movie Rental System==============\\n\\n(One day rent=Rs.100)");\par
+    do\{\par
+    printf("\\n\\nChoose an option:\\n 1.Rent a movie \\n 2.Return a movie.\\n 3.Availability of movies.\\n 4.Exit\\n");\par
+    scanf("%d",&opt);\par
+    switch(opt)\par
+    \{\par
+        case 1:\par
+        \{\par
+\par
+           printf("Which movie do you want to rent \\n Available movies:\\n 1.M1\\n 2.M2\\n 3.M3\\n 4.M4\\n");\par
+           scanf("%d",&choice);\par
+           printf("How many copies:\\n");\par
+           scanf("%d",&copy);\par
+           if (copy>acopy)\par
+           \{\par
+               printf("copies not available ");\par
+               break;\par
+           \}\par
+           else\{\par
+            acopy = acopy - copy;\par
+           \}\par
+\par
+           printf("For how many days:\\n");\par
+           scanf("%d",&days);\par
+           printf("\\n Your Rental Details:\\n");\par
+           if(choice==1)\par
+            \{\par
+               rent=(copy*100)+(10*days);\par
+               printf("\\nMovie= M1 \\t\\t Rent for %d days %d Copies is = Rs. %d",days,copy,rent);\par
+            \}\par
+           else if(choice==2)\par
+           \{\par
+               rent=(copy*120)+(10*days);\par
+               printf("\\nMovie= M1 \\t\\t Rent for %d days %d Copies is = Rs. %d",days,copy,rent);\par
+           \}\par
+           else if(choice==3)\par
+           \{\par
+               rent=(copy*150)+(10*days);\par
+               printf("\\nMovie= M1 \\t\\t Rent for %d days %d Copies is = Rs. %d",days,copy,rent);\par
+           \}\par
+           else if(choice==4)\par
+           \{\par
+               rent=(copy*130)+(10*days);\par
+               printf("\\nMovie= M1 \\t\\t Rent for %d days %d Copies is = Rs. %d",days,copy,rent);\par
+           \}\par
+           else\par
+\{\par
+               printf("invalid input give between (1 to 4)");\par
+           \}\par
+           break;\par
+        \}\par
+        case 2:\par
+        \{   int acopy=5;\par
+            printf("\\nWhat movie you have to return?:\\n 1.M1\\n 2.M2\\n 3.M3\\n 4.M4\\n");\par
+            scanf("%d",&choice);\par
+            printf("\\nHow many copies you want to return:");\par
+            scanf("%d",&returnm);\par
+            acopy = acopy + returnm;\par
+\par
+\par
+            if (choice==1)\par
+            \{\par
+                printf("\\nReturn details:\\t Movie=M1\\tCopies returned=%d",returnm);\par
+                printf("\\nAvailbile copies are %d", acopy);\par
+            \}\par
+            else if (choice==2)\par
+            \{\par
+                printf("\\nReturn details:\\t Movie=M1\\tCopies returned=%d",returnm);\par
+                printf("\\nAvailbile copies are %d", acopy);\par
+            \}\par
+            else if (choice==3)\par
+            \{\par
+                printf("\\nReturn details:\\t Movie=M1\\tCopies returned=%d",returnm);\par
+                printf("\\nAvailbile copies are %d", acopy);\par
+            \}\par
+            else if (choice==4)\par
+            \{\par
+                printf("\\nReturn details:\\t Movie=M1\\tCopies returned=%d",returnm);\par
+                printf("\\nAvailbile copies are %d", acopy);\par
+            \}\par
+            break;\par
+        \}\par
+        case 3:\par
+        \{\par
+            printf("Available movies:\\n 1.M1\\n 2.M2\\n 3.M3\\n 4.M4\\n");\par
+            break;\par
+        \}\par
+    \}\par
+    \}while(opt!=4);\par
+    \{\par
+    printf("=========Thank you for using this system================\\n\\n");\par
+    \}\par
+    return 0;\}\par
+\par
+
+\pard\sa200\sl276\slmult1\qc\b\f0 Question 6\b0\f1\par
+
+\pard\sa200\sl276\slmult1\par
+#include <stdio.h>\par
+\par
+int inventory = 0;\par
+\par
+\par
+int main() \{\par
+    int choice, quantity;\par
+\par
+    while (1) \{\par
+        \par
+    printf("\\n===== Inventory Management System =====\\n");\par
+    printf("1. Add Items\\n");\par
+    printf("2. Remove Items\\n");\par
+    printf("3. Check Current Quantity\\n");\par
+    printf("4. Exit\\n");\par
+    printf("Enter your choice: ");\par
+\par
+\par
+        scanf("%d", &choice);\par
+\par
+        switch (choice) \{\par
+            case 1:\par
+                printf("Enter the quantity to add: ");\par
+                scanf("%d", &quantity);\par
+                if (quantity > 0) \{\par
+                    inventory += quantity;\par
+                    printf("%d item(s) added. Current inventory: %d\\n", quantity, inventory);\par
+                \} else \{\par
+                    printf("Invalid input. Quantity must be a positive number.\\n");\par
+                \}\par
+                break;\par
+\par
+            case 2:\par
+                printf("Enter the quantity to remove: ");\par
+                scanf("%d", &quantity);\par
+                if (quantity > 0) \{\par
+                    if (quantity <= inventory) \{\par
+                        inventory -= quantity;\par
+                        printf("%d item(s) removed. Current inventory: %d\\n", quantity, inventory);\par
+                    \} else \{\par
+                        printf("Error: Quantity to remove exceeds current inventory.\\n");\par
+                    \}\par
+                \} else \{\par
+                    printf("Invalid input. Quantity must be a positive number.\\n");\par
+                \}\par
+                break;\par
+\par
+            case 3:\par
+                printf("Current inventory: %d\\n", inventory);\par
+                break;\par
+\par
+            case 4:\par
+                printf("Thank you for using the Inventory Management System. Goodbye!\\n");\par
+                return 0;\par
+\par
+            default:\par
+                printf("Invalid choice. Please select a valid option.\\n");\par
+        \}\par
+    \}\par
+\par
+    return 0;\par
+\}\par
+
+\pard\sa200\sl276\slmult1\qc\b\f0 Question 7\par
+
+\pard\sa200\sl276\slmult1\b0\f1 #include <stdio.h>\par
+\par
+int main() \{\par
+    int accountBalance = 0, opt, Deposit, Withdraw, end = 0; // Initialize end to 0\par
+    do \{\par
+        printf("\\t What do you want to perform: \\n1. Deposit \\n2. Withdraw \\n3. Check Balance \\n4. Exit\\n");\par
+        scanf("%d", &opt);\par
+        switch (opt) \{\par
+            case 1:\par
+                printf("How much do you want to Deposit? ");\par
+                scanf("%d", &Deposit);\par
+                accountBalance = accountBalance + Deposit;\par
+                break;\par
+\par
+            case 2:\par
+                printf("How much do you want to Withdraw? ");\par
+                scanf("%d", &Withdraw);\par
+                if (Withdraw > accountBalance) \{\par
+                    printf("Account does not hold this much money\\n");\par
+                \} else \{\par
+                    accountBalance = accountBalance - Withdraw;\par
+                \}\par
+                break;\par
+\par
+            case 3:\par
+                printf("Account balance is: %d\\n", accountBalance);\par
+                break;\par
+\par
+            case 4:\par
+                end = 1; // Set end to 1 to exit the loop\par
+                break;\par
+\par
+            default:\par
+                printf("Invalid option. Please select a valid option.\\n");\par
+                break;\par
+        \}\par
+    \} while (end != 1); // Check if end is 1 to exit the loop\par
+\par
+    return 0;\par
+\}\par
+
+\pard\sa200\sl276\slmult1\qc\b\f0 Question 8\par
+
+\pard\sa200\sl276\slmult1\b0\f1\par
+#include <stdio.h>\par
+\par
+int main() \{\par
+    int bookAvailable = 0; // Initialize the number of available books\par
+    int opt;\par
+\par
+    do \{\par
+        printf("\\t What do you want to perform: \\n1. Borrow \\n2. Return \\n3. Check Availability \\n4. Exit\\n");\par
+        scanf("%d", &opt);\par
+\par
+        switch (opt) \{\par
+            case 1: // Borrow\par
+                if (bookAvailable > 0) \{\par
+                    printf("Book borrowed successfully!\\n");\par
+                    bookAvailable--;\par
+                \} else \{\par
+                    printf("Sorry, no books available to borrow.\\n");\par
+                \}\par
+                break;\par
+\par
+            case 2: // Return\par
+                if (bookAvailable < 10) \{ // Assuming a maximum of 10 books in the library\par
+                    printf("Book returned. Thank you!\\n");\par
+                    bookAvailable++;\par
+                \} else \{\par
+                    printf("The library is full. Cannot accept more books.\\n");\par
+                \}\par
+                break;\par
+\par
+            case 3: // Check Availability\par
+                printf("Available books: %d\\n", bookAvailable);\par
+                break;\par
+\par
+            case 4: // Exit\par
+                printf("Exiting the library system. Goodbye!\\n");\par
+                break;\par
+\par
+            default:\par
+                printf("Invalid option. Please select a valid option.\\n");\par
+                break;\par
+        \}\par
+\par
+    \} while (opt != 4); // Exit when the user selects option 4\par
+\par
+    return 0;\par
+\}\par
+\par
+\par
+\par
+\par
+}
+ 

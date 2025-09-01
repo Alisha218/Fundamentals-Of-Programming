@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1704455350 source:c:\users\alisha\documents\university\fop\lab\assignment\assignment2fop\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
